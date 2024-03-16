@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ import { AuthService } from '../../core/services/auth.service';
 export class LoginComponent {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private toastr: ToastrService) {
     this.loginForm = this.fb.group({
       numberPhone: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
@@ -27,8 +28,10 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
+      this.toastr.success("Đăng nhập thành công!!😍")
       this.authService.onLogin(this.loginForm.value).subscribe({
         next: () => {},
+        
       });
     } else {
       this.loginForm.markAllAsTouched();

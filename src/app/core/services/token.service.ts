@@ -17,6 +17,7 @@ export class TokenService {
   }
 
   updateToken(status: boolean) {
+    console.log("ggggggggggg", status)
     this.isAuthentication.next(status);
   }
 

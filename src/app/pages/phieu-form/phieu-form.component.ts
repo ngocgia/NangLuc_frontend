@@ -25,9 +25,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './phieu-form.component.scss',
 })
 export class PhieuFormComponent implements OnChanges {
-  @Input() data: IPhieu | null = null;
+  // @Input() data: IPhieu | null = null;
+  @Input() data: any | null = null;
   @Output() onCloseModel = new EventEmitter();
-
   phieuForm!: FormGroup;
 
   constructor(
@@ -36,11 +36,11 @@ export class PhieuFormComponent implements OnChanges {
     private toastr: ToastrService
   ) {
     this.phieuForm = this.fb.group({
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      mobile: new FormControl('', [Validators.required]),
-      dob: new FormControl('', [Validators.required]),
-      doj: new FormControl('', [Validators.required]),
+      trangThai: new FormControl('', [Validators.required]),
+      loaiDV: new FormControl('', [Validators.required]),
+      // mobile: new FormControl('', [Validators.required]),
+      // dob: new FormControl('', [Validators.required]),
+      // doj: new FormControl('', [Validators.required]),
     });
   }
 

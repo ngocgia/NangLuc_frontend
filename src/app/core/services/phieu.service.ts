@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiResponse, IPhieu } from '../models/Phieu';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +19,8 @@ export class PhieuService {
     return this.http.get<ApiResponse<IPhieu>>(`${this.apiurl}/${id}`);
   }
 
-  createPhieu(phieu: IPhieu): Observable<any> {
-    return this.http.post(`${this.apiurl}`, phieu);
+  createPhieu(phieu: any): Observable<any> {
+    return this.http.post(`${this.apiurl}create`, phieu);
   }
 
   updatePhieu(id: string, phieu: IPhieu): Observable<any> {

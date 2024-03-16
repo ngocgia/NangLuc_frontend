@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModelComponent } from '../../shared/model/model.component';
+import { ModelComponent } from '../../shared/ui/model/model.component';
 import { PhieuFormComponent } from '../phieu-form/phieu-form.component';
 import { ToastrService } from 'ngx-toastr';
 import { PhieuService } from '../../core/services/phieu.service';
