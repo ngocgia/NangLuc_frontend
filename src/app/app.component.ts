@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng17-crud-app';
+  title = 'Thi năng lực 2024';
 }

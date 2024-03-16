@@ -29,25 +29,25 @@
       </tr>
     </thead>
     <tbody>
-      @for (item of employees; track $index) {
+      @for (item of phieus; track $index) {
       <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-          {{item.name}}
+          {{item.loaiDV}}
         </th>
         <td class="px-6 py-4">
-          {{item.email}}
+          {{item.trangThai}}
         </td>
         <td class="px-6 py-4">
-          {{item.mobile}}
+          {{item.thoiGianBD}}
         </td>
         <td class="px-6 py-4">
-          {{item.dob}}
+          {{item.thoiGianKT}}
         </td>
         <td class="px-6 py-4 text-right">
-          <button type="button" (click)="item._id && loadEmployee(item)"
-            class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4">Edit</button>
-          <button type="button" (click)="item._id && deleteEmployee(item._id)"
-            class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+          <button type="button" (click)="item._id && deltaiPhieu(item._id)"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4">Chi tiết</button>
+          <button type="button" (click)="item._id && deletePhieu(item._id)"
+            class="font-medium text-red-600 dark:text-red-500 hover:underline">Xoá</button>
         </td>
       </tr>
       }
@@ -56,6 +56,12 @@
 </div>
 
 
+<app-model [isOpen]="isModelOpenDetail" (closeModel)="closeModel()">
+    <div (onCloseModel)="closeModel()">
+      CHI TIET PHIEU
+    </div>
+</app-model>
+
 <app-model [isOpen]="isModelOpen" (closeModel)="closeModel()">
-  <app-employee-form (onCloseModel)="closeModel()" [data]="employee"></app-employee-form>
+  <app-phieu-form (onCloseModel)="closeModel()" [data]="phieu"></app-phieu-form>
 </app-model>

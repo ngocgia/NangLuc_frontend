@@ -5,7 +5,7 @@ import {
   OnChanges,
   Output,
 } from '@angular/core';
-import { IEmployee } from '../shared/models/Employee';
+import { IPhieu } from '../shared/models/Phieu';
 import {
   FormGroup,
   FormBuilder,
@@ -15,27 +15,27 @@ import {
 } from '@angular/forms';
 import { CommonModule, formatDate } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { EmployeeService } from '../../services/employee.service';
+import { PhieuService } from '../../services/phieu.service';
 import { ToastrService } from 'ngx-toastr';
 @Component({
-  selector: 'app-employee-form',
+  selector: 'app-phieu-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
-  templateUrl: './employee-form.component.html',
-  styleUrl: './employee-form.component.scss',
+  templateUrl: './phieu-form.component.html',
+  styleUrl: './phieu-form.component.scss',
 })
-export class EmployeeFormComponent implements OnChanges {
-  @Input() data: IEmployee | null = null;
+export class PhieuFormComponent implements OnChanges {
+  @Input() data: IPhieu | null = null;
   @Output() onCloseModel = new EventEmitter();
 
-  employeeForm!: FormGroup;
+  phieuForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private employeeService: EmployeeService,
+    private phieuService: PhieuService,
     private toastr: ToastrService
   ) {
-    this.employeeForm = this.fb.group({
+    this.phieuForm = this.fb.group({
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       mobile: new FormControl('', [Validators.required]),
@@ -50,42 +50,41 @@ export class EmployeeFormComponent implements OnChanges {
 
   ngOnChanges(): void {
     if (this.data) {
-      this.employeeForm.patchValue({
-        name: this.data.name,
-        email: this.data.email,
-        mobile: this.data.mobile,
-        dob: formatDate(this.data.dob, 'yyyy-MM-dd', 'en'),
-        doj: this.data.doj,
+      this.phieuForm.patchValue({
+        trangThai: this.data.trangThai,
+        loaiDV: this.data.loaiDV,
+        thoiGianBD: formatDate(this.data.thoiGianBD, 'yyyy-MM-dd', 'en'),
+        thoiGianKT: formatDate(this.data.thoiGianKT, 'yyyy-MM-dd', 'en'),
       });
     }
   }
 
   onSubmit() {
-    if (this.employeeForm.valid) {
+    if (this.phieuForm.valid) {
       if (this.data) {
-        this.employeeService
-          .updateEmployee(this.data._id as string, this.employeeForm.value)
+        this.phieuService
+          .updatePhieu(this.data._id as string, this.phieuForm.value)
           .subscribe({
             next: (response: any) => {
-              this.resetEmployeeForm();
+              this.resetPhieuForm();
               this.toastr.success(response.message);
             },
           });
       } else {
-        this.employeeService.createEmployee(this.employeeForm.value).subscribe({
+        this.phieuService.createPhieu(this.phieuForm.value).subscribe({
           next: (response: any) => {
-            this.resetEmployeeForm();
+            this.resetPhieuForm();
             this.toastr.success(response.message);
           },
         });
       }
     } else {
-      this.employeeForm.markAllAsTouched();
+      this.phieuForm.markAllAsTouched();
     }
   }
 
-  resetEmployeeForm() {
-    this.employeeForm.reset();
+  resetPhieuForm() {
+    this.phieuForm.reset();
     this.onClose();
   }
 }

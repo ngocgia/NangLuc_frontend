@@ -14,10 +14,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'ng17-crud-app' title`, () => {
+  it(`should have the 'Thi năng lực 2024' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng17-crud-app');
+    expect(app.title).toEqual('Thi năng lực 2024');
   });
 
   it('should render title', () => {
