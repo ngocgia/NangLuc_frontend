@@ -1,0 +1,24 @@
+
+
+
+  <form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off" novalidate>
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form2Example1">Số điện thoại</label>
+      <input type="text" placeholder="numberPhone" class="form-control" formControlName="numberPhone"
+        [class]="{'invalid': loginForm.get('numberPhone')?.hasError('required') && loginForm.get('numberPhone')?.touched, 'valid':loginForm.get('numberPhone')?.valid}">
+      @if (loginForm.get('numberPhone')?.hasError('required') && loginForm.get('numberPhone')?.touched) {
+      <span class="form-error">Number Phone is required.</span>
+      }
+    </div>
+
+    <div class="form-outline mb-4">
+        <label for="">Mật khẩu</label>
+        <input type="password" placeholder="Password" class="form-control" formControlName="password"
+          [class]="{'invalid': loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched, 'valid':loginForm.get('password')?.valid}">
+        @if (loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched) {
+        <span class="form-error">Password is required.</span>
+        }
+    </div>
+    <button class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-full px-6 py-3 text-center mb-2">Đăng nhập</button>
+    
+  </form>

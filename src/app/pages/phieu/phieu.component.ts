@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModelComponent } from '../shared/ui/model/model.component';
+import { ModelComponent } from '../../shared/model/model.component';
 import { PhieuFormComponent } from '../phieu-form/phieu-form.component';
 import { ToastrService } from 'ngx-toastr';
-import { PhieuService } from '../../services/phieu.service';
-import { IPhieu } from '../shared/models/Phieu';
+import { PhieuService } from '../../core/services/phieu.service';
+import { IPhieu } from '../../core/models/Phieu';
 
 @Component({
   selector: 'app-phieu',

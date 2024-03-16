@@ -5,7 +5,7 @@ import {
   OnChanges,
   Output,
 } from '@angular/core';
-import { IPhieu } from '../shared/models/Phieu';
+import { IPhieu } from '../../core/models/Phieu';
 import {
   FormGroup,
   FormBuilder,
@@ -15,7 +15,7 @@ import {
 } from '@angular/forms';
 import { CommonModule, formatDate } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { PhieuService } from '../../services/phieu.service';
+import { PhieuService } from '../../core/services/phieu.service';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-phieu-form',

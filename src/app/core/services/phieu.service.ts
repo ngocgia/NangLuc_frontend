@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiResponse, IPhieu } from '../pages/shared/models/Phieu';
+import { ApiResponse, IPhieu } from '../models/Phieu';
 
 @Injectable({
   providedIn: 'root',

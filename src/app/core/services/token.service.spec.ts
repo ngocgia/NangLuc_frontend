@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PhieuService } from './phieu.service';
+import { TokenService } from './token.service';
 
-describe('PhieuService', () => {
-  let service: PhieuService;
+describe('TokenService', () => {
+  let service: TokenService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PhieuService);
+    service = TestBed.inject(TokenService);
   });
 
   it('should be created', () => {
